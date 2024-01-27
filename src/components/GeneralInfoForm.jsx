@@ -1,4 +1,4 @@
-function Input({label, type, id, value, onChange }) {
+function Input({ label, type, id, value, onChange }) {
   return (
     <label htmlFor={id}>
       {label}
@@ -8,7 +8,12 @@ function Input({label, type, id, value, onChange }) {
   );
 }
 
-export default function GeneralInfoForm({ firstName,handleName, lastName, handleLastName }) {
+export default function GeneralInfoForm({
+  firstName,
+  handleName,
+  lastName,
+  handleLastName,
+}) {
   return (
     <form className="general-info-form">
       <h1>General Info</h1>
