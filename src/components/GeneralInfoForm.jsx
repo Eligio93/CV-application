@@ -1,36 +1,44 @@
-function Input({ label, type, id, value, onChange }) {
-  return (
-    <label htmlFor={id}>
-      {label}
-      <br />
-      <input type={type} id={id} value={value} onChange={onChange} />
-    </label>
-  );
-}
+import Input from "./Input";
 
-export default function GeneralInfoForm({
-  firstName,
-  handleName,
-  lastName,
-  handleLastName,
-}) {
+function GeneralInfoForm({ firstName, lastName, email, phone, onChange }) {
   return (
-    <form className="general-info-form">
+    <form className="form" id="general-info-form">
       <h1>General Info</h1>
       <Input
         label={"First Name:"}
         type={"text"}
+        placeholder={"John"}
         id={"firstName"}
         value={firstName}
-        onChange={handleName}
+        onChange={onChange}
       />
       <Input
         label={"Last Name:"}
         type={"text"}
+        placeholder={"Smith"}
         id={"lastName"}
         value={lastName}
-        onChange={handleLastName}
+        onChange={onChange}
       />
+      <Input
+        label={"Email:"}
+        type={"email"}
+        placeholder={"example@example.com"}
+        id={"email"}
+        value={email}
+        onChange={onChange}
+      />
+      <Input
+        label={"Phone:"}
+        type={"tel"}
+        placeholder={"0123456789"}
+        id={"phone"}
+        value={phone}
+        onChange={onChange}
+      />
+     
     </form>
   );
 }
+
+export{GeneralInfoForm, Input}
