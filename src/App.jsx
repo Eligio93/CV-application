@@ -1,39 +1,47 @@
-import {useState} from 'react';
-import GeneralInfoForm from './components/GeneralInfoForm';
-import RenderCV from './components/CvRender';
-import "./App.css"
+import { useState } from "react";
+import {GeneralInfoForm} from "./components/GeneralInfoForm";
+import EducationForm from "./components/EducationForm";
+import RenderCV from "./components/CvRender";
+import "./App.css";
 
 function App() {
-  
-  const [firstName,setFirstName]=useState("");
-  const [lastName,setLastName]=useState("");
-  function handleFirstName(e){
-    setFirstName(e.target.value);
-  }
-  function handlelastName(e){
-    setLastName(e.target.value);
-  }
+  const [formValues, setFormValues] = useState({
+    firstName: "",
+    lastName: "",
+    email:"",
+    phone:"",
+  });
 
-//importare gli states e suddividere la pagine in layout
-return(
-  <>
-  <div className="input-section">
-<GeneralInfoForm
-  firstName={firstName}
-  LastName={lastName}
-  changeName={handleFirstName}
-  changeLastName={handlelastName}
-
-/>
-</div>
-<div className="rendering section">
-<RenderCV 
-  firstName={firstName}
-  lastName={lastName}
-  />
-</div>
-</>
-)
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormValues({ ...formValues, [id]: value });
+  };
+  //importare gli states e suddividere la pagine in layout
+  return (
+    <>
+      <div className="input-section">
+        <GeneralInfoForm
+          firstName={formValues.firstName}
+          lastName={formValues.lastName}
+          email={formValues.email}
+          phone={formValues.phone}
+          onChange={handleChange}
+        />
+        <EducationForm
+        
+        />
+        
+      </div>
+      <div className="rendering section">
+        <RenderCV
+          firstName={formValues.firstName}
+          lastName={formValues.lastName}
+          email={formValues.email}
+          phone={formValues.phone}
+        />
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;
