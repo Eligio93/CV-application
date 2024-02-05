@@ -6,6 +6,7 @@ import RenderCV from "./components/CvRender";
 import "./App.css";
 
 function App() {
+  const [educationList, setEducationList] = useState([]);
   const [formValues, setFormValues] = useState({
     firstName: "",
     lastName: "",
@@ -27,6 +28,18 @@ function App() {
     const { id, value } = e.target;
     setFormValues({ ...formValues, [id]: value });
   };
+  const addEducation = (e) => {
+    e.preventDefault();
+    setEducationList([...educationList, 
+      {
+        school: formValues.school,
+        certificate: formValues.certificate,
+        subject: formValues.subject,
+      },
+    ]);
+    setFormValues({ ...formValues, school: "", certificate: "", subject: "" });
+    console.log(educationList);
+  };
 
   return (
     <>
@@ -44,6 +57,7 @@ function App() {
           certificate={formValues.certificate}
           subject={formValues.subject}
           onChange={handleChange}
+          addEducation={addEducation}
         />
 
         <WorkExperienceForm
@@ -56,7 +70,9 @@ function App() {
         />
       </div>
       <div className="rendering-section">
-        <RenderCV {...formValues} />
+        <RenderCV 
+        formValues={formValues}
+        educationList={educationList} />
       </div>
     </>
   );
