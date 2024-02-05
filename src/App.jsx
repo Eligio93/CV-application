@@ -11,21 +11,23 @@ function App() {
     lastName: "",
     email: "",
     phone: "",
+    homeBase: "",
     school: "",
     certificate: "",
     subject: "",
-    company:"",
-    position:"",
-    responsabilities:"",
-    dateFrom:"",
-    dateTo:"",
+    company: "",
+    position: "",
+    responsabilities: "",
+    dateFrom: "",
+    dateTo: "",
   });
 
+  //manage the changes of the input fields
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormValues({ ...formValues, [id]: value });
   };
-  //importare gli states e suddividere la pagine in layout
+
   return (
     <>
       <div className="input-section">
@@ -34,6 +36,7 @@ function App() {
           lastName={formValues.lastName}
           email={formValues.email}
           phone={formValues.phone}
+          homeBase={formValues.homeBase}
           onChange={handleChange}
         />
         <EducationForm
@@ -42,6 +45,7 @@ function App() {
           subject={formValues.subject}
           onChange={handleChange}
         />
+
         <WorkExperienceForm
           company={formValues.company}
           position={formValues.position}
@@ -51,16 +55,8 @@ function App() {
           onChange={handleChange}
         />
       </div>
-      <div className="rendering section">
-        <RenderCV
-          firstName={formValues.firstName}
-          lastName={formValues.lastName}
-          email={formValues.email}
-          phone={formValues.phone}
-          school={formValues.school}
-          certificate={formValues.certificate}
-          subject={formValues.subject}
-        />
+      <div className="rendering-section">
+        <RenderCV {...formValues} />
       </div>
     </>
   );
