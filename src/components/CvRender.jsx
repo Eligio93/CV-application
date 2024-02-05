@@ -2,48 +2,40 @@ import emailIcon from "/src/assets/email-icon.svg";
 import phoneIcon from "/src/assets/phone-icon.svg";
 import locationIcon from "/src/assets/location-icon.svg"
 
-function Header({ firstName, lastName, email, phone, homeBase }) {
+function Header({ ...formValues/*firstName, lastName, email, phone, homeBase */}) {
   return (
     <div className="header">
-      <p>{firstName + " " + lastName}</p>
+      <p>{formValues.firstName + " " + formValues.lastName}</p>
       <div className="contacts">
         <div>
           <img src={emailIcon} alt="" />
-          {email}
+          {formValues.email}
         </div>
         <div>
         <img src={phoneIcon} alt="" />
-          {phone}</div>
+          {formValues.phone}</div>
         <div>
         <img src={locationIcon} alt="" />
-          {homeBase}</div>
+          {formValues.homeBase}</div>
       </div>
     </div>
   );
 }
 
-export default function RenderCV({
-  firstName,
-  lastName,
-  email,
-  phone,
-  homeBase,
-  school,
-  certificate,
-  subject,
-}) {
+export default function RenderCV({formValues,educationList}) {
   return (
     <>
       <Header
-        firstName={firstName}
-        lastName={lastName}
-        email={email}
-        phone={phone}
-        homeBase={homeBase}
+       {...formValues}
       />
-      <p>{school}</p>
-      <p>{certificate}</p>
-      <p>{subject}</p>
+      {educationList.map(education=>(
+        <>
+        <p>{education.school}</p>
+        <p>{education.certificate}</p>
+        <p>{education.subject}</p>
+        </>
+      ))}
+     
     </>
   );
 }
