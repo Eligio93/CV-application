@@ -2,7 +2,7 @@ import emailIcon from "/src/assets/email-icon.svg";
 import phoneIcon from "/src/assets/phone-icon.svg";
 import locationIcon from "/src/assets/location-icon.svg"
 
-function Header({ ...formValues/*firstName, lastName, email, phone, homeBase */}) {
+function Header({...formValues}) {
   return (
     <div className="header">
       <p>{formValues.firstName + " " + formValues.lastName}</p>
@@ -21,6 +21,21 @@ function Header({ ...formValues/*firstName, lastName, email, phone, homeBase */}
     </div>
   );
 }
+function Sidebar({educationList}){
+  return(
+    <div className="sidebar">
+       {educationList.map((education,index)=>(
+        <div className="education-item" key={index}>
+        <button>Delete</button>
+        <button>Edit</button>
+        <p>{education.certificate +' in '+education.subject}</p>
+        <p>{education.school}</p>
+        </div>
+      ))}
+
+    </div>
+  )
+  }
 
 export default function RenderCV({formValues,educationList}) {
   return (
@@ -28,13 +43,10 @@ export default function RenderCV({formValues,educationList}) {
       <Header
        {...formValues}
       />
-      {educationList.map(education=>(
-        <>
-        <p>{education.school}</p>
-        <p>{education.certificate}</p>
-        <p>{education.subject}</p>
-        </>
-      ))}
+      <Sidebar
+      educationList={educationList}
+      />
+     
      
     </>
   );
