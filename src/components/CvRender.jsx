@@ -21,13 +21,14 @@ function Header({...formValues}) {
     </div>
   );
 }
-function Sidebar({educationList}){
+function Sidebar({educationList,deleteEdu}){
+
   return(
     <div className="sidebar">
        {educationList.map((education,index)=>(
         <div className="education-item" key={index}>
-        <button>Delete</button>
-        <button>Edit</button>
+        <button onClick={()=>deleteEdu(index)}>Delete</button>
+        <button >Edit</button>
         <p>{education.certificate +' in '+education.subject}</p>
         <p>{education.school}</p>
         </div>
@@ -37,7 +38,7 @@ function Sidebar({educationList}){
   )
   }
 
-export default function RenderCV({formValues,educationList}) {
+export default function RenderCV({formValues,educationList,deleteEdu}) {
   return (
     <>
       <Header
@@ -45,6 +46,7 @@ export default function RenderCV({formValues,educationList}) {
       />
       <Sidebar
       educationList={educationList}
+      deleteEdu={deleteEdu}
       />
      
      

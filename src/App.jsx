@@ -41,6 +41,10 @@ function App() {
     console.log(educationList);
   };
 
+  const deleteEdu=(index)=>{
+    setEducationList(educationList.filter((education,eindex)=>index!== eindex))
+  }
+
   return (
     <>
       <div className="input-section">
@@ -72,7 +76,9 @@ function App() {
       <div className="rendering-section">
         <RenderCV 
         formValues={formValues}
-        educationList={educationList} />
+        educationList={educationList}
+        deleteEdu={deleteEdu}
+         />
       </div>
     </>
   );
