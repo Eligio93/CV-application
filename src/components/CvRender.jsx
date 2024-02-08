@@ -54,7 +54,7 @@ function Content({experienceList,deleteExperience}){
         <p>
           {experience.responsabilities}
         </p>
-        {experience.dateTo==="" ? "Still working" : experience.dateTo}
+        {experience.dateTo=== "" ? "Still working" : experience.dateTo}
       </div>
 
       ))
