@@ -78,6 +78,9 @@ function App() {
       dateTo: "",
     });
   };
+  const deleteExperience=(index)=>{
+    setExperienceList(experienceList.filter((experience,eindex)=> index !== eindex))
+  }
 
   return (
     <>
@@ -115,6 +118,7 @@ function App() {
           deleteEdu={deleteEdu}
           editEdu={editEdu}
           experienceList={experienceList}
+          deleteExperience={deleteExperience}
         />
       </div>
     </>

@@ -41,12 +41,12 @@ function Sidebar({ educationList, deleteEdu, editEdu }) {
     </div>
   );
 }
-function Content({experienceList}){
+function Content({experienceList,deleteExperience}){
   return(
     <div className="content">
       {experienceList.map((experience,index)=>(
         <div className="experience-item" key={index}>
-        <button>Delete</button>
+        <button onClick={()=>deleteExperience(index)}>Delete</button>
         <button>Edit</button>
         <p>
           <b>{experience.position + " at " + experience.company}</b>
@@ -70,7 +70,8 @@ export default function RenderCV({
   educationList,
   deleteEdu,
   editEdu,
-  experienceList
+  experienceList,
+  deleteExperience
 }) {
   return (
     <>
@@ -83,7 +84,9 @@ export default function RenderCV({
           
         />
         <Content
-        experienceList={experienceList} />
+        experienceList={experienceList}
+        deleteExperience={deleteExperience}
+        />
       </div>
     </>
   );
