@@ -1,6 +1,13 @@
 import Input from "./Input";
 
-function GeneralInfoForm({ firstName, lastName, email, phone, homeBase,onChange }) {
+function GeneralInfoForm({
+  firstName,
+  lastName,
+  email,
+  phone,
+  homeBase,
+  onChange,
+}) {
   return (
     <form className="form" id="general-info-form">
       <h1>General Info</h1>
@@ -36,7 +43,7 @@ function GeneralInfoForm({ firstName, lastName, email, phone, homeBase,onChange 
         value={phone}
         onChange={onChange}
       />
-       <Input
+      <Input
         label={"Based in:"}
         type={"text"}
         placeholder={"Rome"}
@@ -44,9 +51,8 @@ function GeneralInfoForm({ firstName, lastName, email, phone, homeBase,onChange 
         value={homeBase}
         onChange={onChange}
       />
-     
     </form>
   );
 }
 
-export{GeneralInfoForm}
+export { GeneralInfoForm };
