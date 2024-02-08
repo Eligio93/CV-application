@@ -5,7 +5,7 @@ export default function EducationForm({
   subject,
   certificate,
   onChange,
-  addEducation
+  addEducation,
 }) {
   return (
     <form id="education-form" className="form">
