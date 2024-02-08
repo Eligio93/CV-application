@@ -41,28 +41,22 @@ function Sidebar({ educationList, deleteEdu, editEdu }) {
     </div>
   );
 }
-function Content({experienceList,deleteExperience}){
-  return(
+function Content({ experienceList, deleteExperience, editExperience }) {
+  return (
     <div className="content">
-      {experienceList.map((experience,index)=>(
+      {experienceList.map((experience, index) => (
         <div className="experience-item" key={index}>
-        <button onClick={()=>deleteExperience(index)}>Delete</button>
-        <button>Edit</button>
-        <p>
-          <b>{experience.position + " at " + experience.company}</b>
-        </p>
-        <p>
-          {experience.responsabilities}
-        </p>
-        {experience.dateTo=== "" ? "Still working" : experience.dateTo}
-      </div>
-
-      ))
-      }
-
+          <button onClick={() => deleteExperience(index)}>Delete</button>
+          <button onClick={() => editExperience(index)}>Edit</button>
+          <p>
+            <b>{experience.position + " at " + experience.company}</b>
+          </p>
+          <p>{experience.responsabilities}</p>
+          {experience.dateTo === "" ? "Still working" : experience.dateTo}
+        </div>
+      ))}
     </div>
-  )
-
+  );
 }
 
 export default function RenderCV({
@@ -71,7 +65,8 @@ export default function RenderCV({
   deleteEdu,
   editEdu,
   experienceList,
-  deleteExperience
+  deleteExperience,
+  editExperience
 }) {
   return (
     <>
@@ -81,11 +76,11 @@ export default function RenderCV({
           educationList={educationList}
           deleteEdu={deleteEdu}
           editEdu={editEdu}
-          
         />
         <Content
-        experienceList={experienceList}
-        deleteExperience={deleteExperience}
+          experienceList={experienceList}
+          deleteExperience={deleteExperience}
+          editExperience={editExperience}
         />
       </div>
     </>
