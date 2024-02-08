@@ -9,11 +9,10 @@ export default function WorkExperienceForm({
   onChange,
   addExperience,
   stillWorking,
-  checkStillWorking
+  checkStillWorking,
 }) {
-  
   return (
-    <form className="form" id="work-experience-form">
+    <form className="form" id="work-experience-form" onSubmit={addExperience}>
       <h1>Work Experience</h1>
       <Input
         label={"Company Name:"}
@@ -60,7 +59,7 @@ export default function WorkExperienceForm({
         checked={stillWorking}
         onChange={checkStillWorking}
       />
-      <button onClick={addExperience}>Add Work Experience</button>
+      <button type="submit">Add Work Experience</button>
     </form>
   );
 }
