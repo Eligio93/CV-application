@@ -6,6 +6,7 @@ import RenderCV from "./components/CvRender";
 import "./App.css";
 
 function App() {
+  const [stillWorking, setStillWorking] = useState(true);
   const [educationList, setEducationList] = useState([]);
   const [experienceList, setExperienceList] = useState([]);
   const [formValues, setFormValues] = useState({
@@ -23,6 +24,12 @@ function App() {
     dateFrom: "",
     dateTo: "",
   });
+  const checkStillWorking=(e)=>{
+    setStillWorking(e.target.checked)
+    if(e.target.checked){
+      setFormValues({...formValues,dateTo:""})
+    }
+  }
 
   //manage the changes of the input fields
   const handleChange = (e) => {
@@ -59,6 +66,7 @@ function App() {
   };
   const addExperience = (e) => {
     e.preventDefault();
+    console.log(formValues.dateTo)
     setExperienceList([
       ...experienceList,
       {
@@ -109,6 +117,8 @@ function App() {
           dateTo={formValues.dateTo}
           onChange={handleChange}
           addExperience={addExperience}
+          stillWorking={stillWorking}
+          checkStillWorking={checkStillWorking}
         />
       </div>
       <div className="rendering-section">
