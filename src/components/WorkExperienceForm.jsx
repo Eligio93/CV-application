@@ -1,7 +1,10 @@
+import { useState } from "react";
 import Input from "./Input";
 
 
-export default function WorkExperienceForm({company,position,responsabilities,dateFrom,dateTo,onChange}){
+export default function WorkExperienceForm({company,position,responsabilities,dateFrom,dateTo,onChange,addExperience}){
+   
+    const [showDate,setShowDate]=useState(true)
     return(
         <form className="form" id="work-experience-form">
         <h1>Work Experience</h1>
@@ -24,7 +27,6 @@ export default function WorkExperienceForm({company,position,responsabilities,da
         <Input
           label={"Responsabilities:"}
           type={"textarea"}
-        //   placeholder={"example@example.com"}
           id={"responsabilities"}
           value={responsabilities}
           onChange={onChange}
@@ -32,7 +34,6 @@ export default function WorkExperienceForm({company,position,responsabilities,da
         <Input
           label={"From:"}
           type={"date"}
-        //   placeholder={"0123456789"}
           id={"dateFrom"}
           value={dateFrom}
           onChange={onChange}
@@ -40,11 +41,19 @@ export default function WorkExperienceForm({company,position,responsabilities,da
         <Input
           label={"To:"}
           type={"date"}
-        //   placeholder={"0123456789"}
           id={"dateTo"}
           value={dateTo}
           onChange={onChange}
+          disabled={showDate}
         />
+        <Input
+        label={"Still working here"}
+        type={"checkbox"}
+        id={"stillHere"}
+        checked={showDate}
+        onChange={(e)=>setShowDate(e.target.checked)}
+        />
+        <button onClick={addExperience}>Add Work Experience</button>
        
        
       </form>
