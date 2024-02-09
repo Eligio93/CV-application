@@ -24,12 +24,6 @@ function App() {
     dateFrom: "",
     dateTo: "",
   });
-  const checkStillWorking=(e)=>{
-    setStillWorking(e.target.checked)
-    if(e.target.checked){
-      setFormValues({...formValues,dateTo:""})
-    }
-  }
 
   //manage the changes of the input fields
   const handleChange = (e) => {
@@ -66,7 +60,6 @@ function App() {
   };
   const addExperience = (e) => {
     e.preventDefault();
-    console.log(formValues.dateTo)
     setExperienceList([
       ...experienceList,
       {
@@ -86,9 +79,29 @@ function App() {
       dateTo: "",
     });
   };
-  const deleteExperience=(index)=>{
-    setExperienceList(experienceList.filter((experience,eindex)=> index !== eindex))
-  }
+  const checkStillWorking = (e) => {
+    setStillWorking(e.target.checked);
+    if (e.target.checked) {
+      setFormValues({ ...formValues, dateTo: "" });
+    }
+  };
+  const deleteExperience = (index) => {
+    setExperienceList(
+      experienceList.filter((experience, eindex) => index !== eindex)
+    );
+  };
+  const editExperience = (index) => {
+    deleteExperience(index);
+    setFormValues({
+      ...formValues,
+      company: experienceList[index].company,
+      position: experienceList[index].position,
+      responsabilities: experienceList[index].responsabilities,
+      dateFrom: experienceList[index].dateFrom,
+      dateTo: experienceList[index].dateTo === "" ? "" : experienceList[index].dateTo
+    });
+    setStillWorking(experienceList[index].dateTo === "")
+  };
 
   return (
     <>
@@ -129,6 +142,7 @@ function App() {
           editEdu={editEdu}
           experienceList={experienceList}
           deleteExperience={deleteExperience}
+          editExperience={editExperience}
         />
       </div>
     </>
