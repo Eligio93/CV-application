@@ -30,13 +30,22 @@ export default function WorkExperienceForm({
         value={position}
         onChange={onChange}
       />
-      <Input
+      {/* <Input
         label={"Responsabilities:"}
         type={"textarea"}
         id={"responsabilities"}
         value={responsabilities}
         onChange={onChange}
-      />
+      /> */}
+      <label htmlFor="responsabilities">Responsabilities:</label>
+      <textarea
+        id="responsabilities"
+        name="responsabilities"
+        rows="5"
+        cols="33"
+        value={responsabilities}
+        onChange={onChange}
+      ></textarea>
       <Input
         label={"From:"}
         type={"date"}
