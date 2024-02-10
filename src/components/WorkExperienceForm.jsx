@@ -1,4 +1,5 @@
 import Input from "./Input";
+import addIcon from "/src/assets/add-icon.svg";
 
 export default function WorkExperienceForm({
   company,
@@ -68,7 +69,9 @@ export default function WorkExperienceForm({
         checked={stillWorking}
         onChange={checkStillWorking}
       />
-      <button type="submit">Add Work Experience</button>
+      <button type="submit">
+        <img className="btnIcon" src={addIcon} alt="" />
+        Add Work Experience</button>
     </form>
   );
 }

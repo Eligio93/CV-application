@@ -5,7 +5,7 @@ import locationIcon from "/src/assets/location-icon.svg";
 function Header({ ...formValues }) {
   return (
     <div className="header">
-      <p>{formValues.firstName + " " + formValues.lastName}</p>
+      <p>{formValues.firstName}<br />{formValues.lastName}</p>
       <div className="contacts">
         <div>
           <img src={emailIcon} alt="" />
@@ -26,16 +26,18 @@ function Header({ ...formValues }) {
 function Sidebar({ educationList, deleteEdu, editEdu }) {
   return (
     <div className="sidebar">
+      {educationList.length>0 && <h2>Education</h2>}
       {educationList.map((education, index) => (
         <div className="education-item" key={index}>
-          <button onClick={() => deleteEdu(index)}>Delete</button>
-          <button onClick={() => editEdu(index)}>Edit</button>
+          
           <p>
             <b>{education.certificate + " in " + education.subject}</b>
           </p>
           <p>
             <i>{education.school}</i>
           </p>
+          <button onClick={() => deleteEdu(index)}>Delete</button>
+          <button onClick={() => editEdu(index)}>Edit</button>
         </div>
       ))}
     </div>
@@ -51,7 +53,7 @@ function Content({ experienceList, deleteExperience, editExperience }) {
           <p>
             <b>{experience.position + " at " + experience.company}</b>
           </p>
-          <p>{experience.responsabilities}</p>
+          <p style={{ whiteSpace: 'pre-line' }}>{experience.responsabilities}</p>
           {experience.dateTo === "" ? "Still working" : experience.dateTo}
         </div>
       ))}
