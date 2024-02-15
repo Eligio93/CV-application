@@ -2,10 +2,10 @@ import emailIcon from "/src/assets/email-icon.svg";
 import phoneIcon from "/src/assets/phone-icon.svg";
 import locationIcon from "/src/assets/location-icon.svg";
 
-function Header({ ...formValues }) {
+function Sidebar({ educationList, deleteEdu, editEdu, formValues }) {
   return (
-    <div className="header">
-      <p>{formValues.firstName}<br />{formValues.lastName}</p>
+    <div className="sidebar">
+      <h1>{formValues.firstName} <br /> {formValues.lastName}</h1>
       <div className="contacts">
         <div>
           <img src={emailIcon} alt="" />
@@ -20,16 +20,9 @@ function Header({ ...formValues }) {
           {formValues.homeBase}
         </div>
       </div>
-    </div>
-  );
-}
-function Sidebar({ educationList, deleteEdu, editEdu }) {
-  return (
-    <div className="sidebar">
-      {educationList.length>0 && <h2>Education</h2>}
+      {educationList.length > 0 && <h2>Education</h2>}
       {educationList.map((education, index) => (
         <div className="education-item" key={index}>
-          
           <p>
             <b>{education.certificate + " in " + education.subject}</b>
           </p>
@@ -53,7 +46,9 @@ function Content({ experienceList, deleteExperience, editExperience }) {
           <p>
             <b>{experience.position + " at " + experience.company}</b>
           </p>
-          <p style={{ whiteSpace: 'pre-line' }}>{experience.responsabilities}</p>
+          <p style={{ whiteSpace: "pre-line" }}>
+            {experience.responsabilities}
+          </p>
           {experience.dateTo === "" ? "Still working" : experience.dateTo}
         </div>
       ))}
@@ -68,23 +63,24 @@ export default function RenderCV({
   editEdu,
   experienceList,
   deleteExperience,
-  editExperience
+  editExperience,
 }) {
   return (
     <>
-      <Header {...formValues} />
-      <div id="main">
+      {/* <Header {...formValues} /> */}
+      
         <Sidebar
           educationList={educationList}
           deleteEdu={deleteEdu}
           editEdu={editEdu}
+          formValues={formValues}
         />
         <Content
           experienceList={experienceList}
           deleteExperience={deleteExperience}
           editExperience={editExperience}
         />
-      </div>
+     
     </>
   );
 }
