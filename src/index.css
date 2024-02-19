@@ -11,7 +11,7 @@ body {
 
 #root {
   display: flex;
-  max-width:100%;
+  max-width: 100%;
   height: 100%;
   gap: 20px;
 }
@@ -46,7 +46,7 @@ input {
   background-color: #E0E2D7;
   display: flex;
   flex-direction: column;
-  word-wrap: break-word; 
+  word-wrap: break-word;
 }
 
 .sidebar h1 {
@@ -104,12 +104,14 @@ input {
   width: 20px;
 }
 
-.edu-item-btns button, .exp-item-btns button{
+.edu-item-btns button,
+.exp-item-btns button {
   background-color: transparent;
   border: none;
 }
 
-.edu-item-btns button:hover, .exp-item-btns button:hover {
+.edu-item-btns button:hover,
+.exp-item-btns button:hover {
   cursor: pointer;
   transform: scale(1.2);
 }
@@ -121,52 +123,65 @@ textarea {
 .btnIcon {
   width: 50px;
 }
+
 .content {
-  padding:15px;
-  width:70%;
+  padding: 15px;
+  width: 70%;
 }
-.content h2{
+
+.content h2 {
   font-style: italic;
 }
-.experience-item{
-  padding:10px;
-  margin-top:20px;
-  border-bottom:1px solid black;
+
+.experience-item {
+  padding: 10px;
+  margin-top: 20px;
+  border-bottom: 1px solid black;
   word-wrap: break-word;
 }
-.exp-item-header{
-  display:flex;
-  padding:0;
+
+.exp-item-header {
+  display: flex;
+  padding: 0;
   margin-bottom: 10px;
   justify-content: space-between;
 }
-.exp-item-date{
-  display:flex;
-  gap:10px;
+
+.exp-item-date {
+  display: flex;
+  gap: 10px;
 }
-.exp-item-description{
-  margin-left:10px;
-  margin-bottom: 10px;;
+
+.exp-item-description {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  ;
 }
-.exp-item-btns{
-  display:flex;
+
+.exp-item-btns {
+  display: flex;
   justify-content: flex-end;
-  gap:5px;
-  margin-bottom:5px;
+  gap: 5px;
+  margin-bottom: 5px;
 }
-.exp-item-btns img{
-  width:20px;
+
+.exp-item-btns img {
+  width: 20px;
 }
-/* @media print {
-  body{
-    padding:0;
+
+@media print {
+  body {
+    padding: 0;
   }
-  .sidebar{
-    width:35%;
+
+  .sidebar {
+    width: 35%;
   }
-  .content{
-    width:65%;
+
+  .content {
+    width: 65%;
   }
+
   button {
     display: none;
   }
@@ -174,7 +189,8 @@ textarea {
   .input-section {
     display: none;
   }
-  .rendering-section{
-    width:100%;
+
+  .rendering-section {
+    width: 100%;
   }
-} */
+}
