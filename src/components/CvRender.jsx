@@ -1,11 +1,15 @@
 import emailIcon from "/src/assets/email-icon.svg";
 import phoneIcon from "/src/assets/phone-icon.svg";
 import locationIcon from "/src/assets/location-icon.svg";
+import deleteIcon from "/src/assets/delete-icon.svg";
+import editIcon from "/src/assets/edit-icon.svg";
 
 function Sidebar({ educationList, deleteEdu, editEdu, formValues }) {
   return (
     <div className="sidebar">
-      <h1>{formValues.firstName} <br /> {formValues.lastName}</h1>
+      <h1>
+        {formValues.firstName} <br /> {formValues.lastName}
+      </h1>
       <div className="contacts">
         <div>
           <img src={emailIcon} alt="" />
@@ -29,8 +33,14 @@ function Sidebar({ educationList, deleteEdu, editEdu, formValues }) {
           <p>
             <i>{education.school}</i>
           </p>
-          <button onClick={() => deleteEdu(index)}>Delete</button>
-          <button onClick={() => editEdu(index)}>Edit</button>
+          <div className="edu-item-btns">
+            <button onClick={() => deleteEdu(index)}>
+              <img src={deleteIcon} alt="" />
+            </button>
+            <button onClick={() => editEdu(index)}>
+              <img src={editIcon} alt="" />
+            </button>
+          </div>
         </div>
       ))}
     </div>
@@ -39,17 +49,34 @@ function Sidebar({ educationList, deleteEdu, editEdu, formValues }) {
 function Content({ experienceList, deleteExperience, editExperience }) {
   return (
     <div className="content">
+      {experienceList.length > 0 && <h2>Work Experiences</h2>}
       {experienceList.map((experience, index) => (
         <div className="experience-item" key={index}>
-          <button onClick={() => deleteExperience(index)}>Delete</button>
-          <button onClick={() => editExperience(index)}>Edit</button>
-          <p>
-            <b>{experience.position + " at " + experience.company}</b>
-          </p>
-          <p style={{ whiteSpace: "pre-line" }}>
-            {experience.responsabilities}
-          </p>
-          {experience.dateTo === "" ? "Still working" : experience.dateTo}
+          <div className="exp-item-header">
+            <p>
+              <b>{experience.position + " at " + experience.company}</b>
+            </p>
+
+            <div className="exp-item-date">
+              <p>{experience.dateFrom}</p>
+              -
+              <p>{experience.dateTo === "" ? "Current" : experience.dateTo}</p>
+            </div>
+          </div>
+          <div className="exp-item-description">
+            <p style={{ whiteSpace: "pre-line" }}>
+              {experience.responsabilities}
+            </p>
+          </div>
+
+          <div className="exp-item-btns">
+            <button onClick={() => deleteExperience(index)}>
+            <img src={deleteIcon} alt="" />
+            </button>
+            <button onClick={() => editExperience(index)}>
+            <img src={editIcon} alt="" />
+            </button>
+          </div>
         </div>
       ))}
     </div>
@@ -68,19 +95,18 @@ export default function RenderCV({
   return (
     <>
       {/* <Header {...formValues} /> */}
-      
-        <Sidebar
-          educationList={educationList}
-          deleteEdu={deleteEdu}
-          editEdu={editEdu}
-          formValues={formValues}
-        />
-        <Content
-          experienceList={experienceList}
-          deleteExperience={deleteExperience}
-          editExperience={editExperience}
-        />
-     
+
+      <Sidebar
+        educationList={educationList}
+        deleteEdu={deleteEdu}
+        editEdu={editEdu}
+        formValues={formValues}
+      />
+      <Content
+        experienceList={experienceList}
+        deleteExperience={deleteExperience}
+        editExperience={editExperience}
+      />
     </>
   );
 }
