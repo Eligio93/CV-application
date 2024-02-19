@@ -3,6 +3,7 @@ import phoneIcon from "/src/assets/phone-icon.svg";
 import locationIcon from "/src/assets/location-icon.svg";
 import deleteIcon from "/src/assets/delete-icon.svg";
 import editIcon from "/src/assets/edit-icon.svg";
+import { format } from "date-fns";
 
 function Sidebar({ educationList, deleteEdu, editEdu, formValues }) {
   return (
@@ -58,9 +59,9 @@ function Content({ experienceList, deleteExperience, editExperience }) {
             </p>
 
             <div className="exp-item-date">
-              <p>{experience.dateFrom}</p>
+              <p>{format(experience.dateFrom, 'dd/MM/yyyy')}</p>
               -
-              <p>{experience.dateTo === "" ? "Current" : experience.dateTo}</p>
+              <p>{experience.dateTo === "" ? "Current" : format(experience.dateTo,'dd/MM/yyyy')}</p>
             </div>
           </div>
           <div className="exp-item-description">
