@@ -172,14 +172,17 @@ textarea {
 @media print {
   body {
     padding: 0;
+    height:100vh;
   }
 
   .sidebar {
     width: 35%;
+    border-right:1px solid black
   }
 
   .content {
     width: 65%;
+    
   }
 
   button {
