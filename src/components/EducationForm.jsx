@@ -38,7 +38,7 @@ export default function EducationForm({
       />
       <button onClick={addEducation}>
         <img className="btnIcon" src={addIcon} alt="" />
-        Add Education</button>
+        Add</button>
     </form>
   );
 }
