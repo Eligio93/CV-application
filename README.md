@@ -14,4 +14,5 @@ Initially, I struggled with understanding how to use a single function to handle
 This project has been enjoyable for me as it provided a preliminary glimpse into the capabilities of React. I am pleased with the overall validity and functionality of my project. Additionally, I incorporated a couple of extra features – printing and downloading the CV – which allowed me to delve into print media queries and document download functions. This involved installing packages such as html2canvas and jspdf, broadening my understanding of additional tools and functionalities within the React ecosystem.
 
 ### Live Preview
+[Live Preview Here](https://ec-cv-application.netlify.app/)
 
