@@ -3,6 +3,10 @@ import { GeneralInfoForm } from "./components/GeneralInfoForm";
 import EducationForm from "./components/EducationForm";
 import WorkExperienceForm from "./components/WorkExperienceForm";
 import RenderCV from "./components/CvRender";
+import downloadIcon from "./assets/download-icon.svg"
+import printIcon from "./assets/print-icon.svg"
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import "./App.css";
 
 function App() {
@@ -102,6 +106,19 @@ function App() {
     });
     setStillWorking(experienceList[index].dateTo === "")
   };
+  const handleDownloadPDF = () => {
+    const input = document.querySelector('.rendering-section'); 
+    // Specify the id of the element you want to convert to PDF
+    input.classList.add('download-element');
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, 'PNG', 0, 0);
+      pdf.save('CV.pdf'); 
+      // Specify the name of the downloaded PDF file
+    });
+    input.classList.remove('download-element');
+  };
 
   return (
     <>
@@ -144,6 +161,14 @@ function App() {
           deleteExperience={deleteExperience}
           editExperience={editExperience}
         />
+      </div>
+      <div className="fixed-btns">
+        <button onClick={()=>window.print()}>
+        <img src={printIcon} alt="" />
+        </button>
+        <button onClick={handleDownloadPDF}>
+        <img src={downloadIcon} alt="" />
+        </button>
       </div>
     </>
   );
