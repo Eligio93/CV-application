@@ -20,6 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: fit-content;
   width: 20%;
   gap: 30px;
 }
@@ -32,12 +33,50 @@ input {
   display: flex;
   flex-direction: column;
   width: 100%;
+  border: 3px solid #E0E2D7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 18px 7px rgb(224, 226, 215, 0.9);
 }
 
 .rendering-section {
   display: flex;
   width: 80%;
   min-height: 100%;
+}
+
+.form button {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-size: 20px;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-top: 30px;
+  color: white;
+  background-color: #828a49;
+  border: none;
+
+}
+
+.btnIcon {
+  width: 30px;
+  fill: white;
+}
+
+.form button:hover,
+.fixed-btns button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.form button:active,
+.fixed-btns button:active {
+  transform: scale(1);
+
+
 }
 
 .sidebar {
@@ -120,9 +159,7 @@ textarea {
   resize: none;
 }
 
-.btnIcon {
-  width: 50px;
-}
+
 
 .content {
   padding: 15px;
@@ -149,6 +186,8 @@ textarea {
 
 .exp-item-date {
   display: flex;
+  font-size: 15px;
+  font-style: italic;
   gap: 10px;
 }
 
@@ -156,6 +195,10 @@ textarea {
   margin-left: 10px;
   margin-bottom: 10px;
   ;
+}
+
+.exp-item-description>p {
+  font-size: 18px;
 }
 
 .exp-item-btns {
@@ -169,20 +212,59 @@ textarea {
   width: 20px;
 }
 
-@media print {
+.exp-item-header>p:first-of-type {
+  font-size: 25px;
+  ;
+}
+
+.fixed-btns {
+  display: flex;
+  gap: 15px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.fixed-btns button {
+  border-radius: 100%;
+  padding: 10px;
+  background-color: #828a49;
+  border: none;
+}
+
+.fixed-btns img {
+  width: 40px;
+}
+/*CSS for Download*/
+.download-element{
+  width:210mm;
+  height:297mm;
+}
+.download-element button{
+    display:none;
+}
+.download-element   .exp-item-header>p:first-of-type {
+  font-size: 20px;
+}
+.download-element .exp-item-description>p{
+  font-size:16px;
+}
+
+
+@media print{
   body {
     padding: 0;
-    height:100vh;
+    height: 100vh;
   }
 
   .sidebar {
     width: 35%;
-    border-right:1px solid black
+    border-right: 1px solid black
   }
 
   .content {
     width: 65%;
-    
+
   }
 
   button {
@@ -195,5 +277,9 @@ textarea {
 
   .rendering-section {
     width: 100%;
+  }
+
+  .exp-item-header>p:first-of-type {
+    font-size: 20px;
   }
 }
