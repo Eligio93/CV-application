@@ -7,7 +7,6 @@ import downloadIcon from "./assets/download-icon.svg";
 import printIcon from "./assets/print-icon.svg";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import "./App.css";
 
 function App() {
   const [stillWorking, setStillWorking] = useState(true);
