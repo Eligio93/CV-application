@@ -235,23 +235,27 @@ textarea {
 .fixed-btns img {
   width: 40px;
 }
+
 /*CSS for Download*/
-.download-element{
-  width:210mm;
-  height:297mm;
+.download-element {
+  width: 210mm;
+  height: 297mm;
 }
-.download-element button{
-    display:none;
+
+.download-element button {
+  display: none;
 }
-.download-element   .exp-item-header>p:first-of-type {
+
+.download-element .exp-item-header>p:first-of-type {
   font-size: 20px;
 }
-.download-element .exp-item-description>p{
-  font-size:16px;
+
+.download-element .exp-item-description>p {
+  font-size: 16px;
 }
 
 
-@media print{
+@media print {
   body {
     padding: 0;
     height: 100vh;

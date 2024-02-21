@@ -1,7 +1,6 @@
 import Input from "./Input";
 import addIcon from "/src/assets/add-icon.svg";
 
-
 export default function EducationForm({
   school,
   subject,
@@ -38,7 +37,8 @@ export default function EducationForm({
       />
       <button onClick={addEducation}>
         <img className="btnIcon" src={addIcon} alt="" />
-        Add</button>
+        Add
+      </button>
     </form>
   );
 }

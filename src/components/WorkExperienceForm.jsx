@@ -71,7 +71,8 @@ export default function WorkExperienceForm({
       />
       <button type="submit">
         <img className="btnIcon" src={addIcon} alt="" />
-        Add Work Experience</button>
+        Add Work Experience
+      </button>
     </form>
   );
 }

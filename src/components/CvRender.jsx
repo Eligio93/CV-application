@@ -59,9 +59,12 @@ function Content({ experienceList, deleteExperience, editExperience }) {
             </p>
 
             <div className="exp-item-date">
-              <p>{format(experience.dateFrom, 'dd/MM/yyyy')}</p>
-              -
-              <p>{experience.dateTo === "" ? "Current" : format(experience.dateTo,'dd/MM/yyyy')}</p>
+              <p>{format(experience.dateFrom, "dd/MM/yyyy")}</p>-
+              <p>
+                {experience.dateTo === ""
+                  ? "Current"
+                  : format(experience.dateTo, "dd/MM/yyyy")}
+              </p>
             </div>
           </div>
           <div className="exp-item-description">
@@ -72,10 +75,10 @@ function Content({ experienceList, deleteExperience, editExperience }) {
 
           <div className="exp-item-btns">
             <button onClick={() => deleteExperience(index)}>
-            <img src={deleteIcon} alt="" />
+              <img src={deleteIcon} alt="" />
             </button>
             <button onClick={() => editExperience(index)}>
-            <img src={editIcon} alt="" />
+              <img src={editIcon} alt="" />
             </button>
           </div>
         </div>
